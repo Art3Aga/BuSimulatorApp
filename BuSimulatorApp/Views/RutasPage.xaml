@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.RutasPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame CornerRadius="100" BackgroundColor="White" HasShadow="True" Margin="0,5,0,5" Padding="2">
+                <SearchBar Placeholder="Buscar Ruta" x:Name="txtBuscar" TextChanged="txtBuscar_TextChanged"></SearchBar>
+            </Frame>
+            <ListView x:Name="listaViewRutas"
+                      ItemSelected="listaViewRutas_ItemSelected" SeparatorVisibility="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextCell Text="{Binding nombre_ruta}"></TextCell>-->
+                        <ViewCell>
+                            <Frame Padding="2" Margin="0,5,0,5" HeightRequest="150" CornerRadius="20">
+                                <StackLayout HeightRequest="100" HorizontalOptions="Center" 
+                                                 Orientation="Horizontal">
+                                    <Label HorizontalOptions="Center" Text="{Binding nombre_ruta}"
+                                           FontSize="23" FontAttributes="Bold" TextColor="Black"
+                                           VerticalOptions="CenterAndExpand"></Label>
+                                    <Image Source="autobus.png" VerticalOptions="CenterAndExpand" 
+                                           HorizontalOptions="End" WidthRequest="30" HeightRequest="30"></Image>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
